@@ -1,0 +1,12 @@
+alembic==1.14.1
+SQLAlchemy~=2.0.37
+psycopg2==2.9.10
+fastapi==0.115.8
+pydantic~=2.8.2
+uvicorn~=0.34.0
+python-jose==3.3.0
+passlib~=1.7.4
+bcrypt~=4.2.1
+python-dotenv~=1.0.1
+python-multipart~=0.0.20
+redis~=5.2.1
