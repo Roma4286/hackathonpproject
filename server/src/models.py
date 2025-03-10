@@ -12,7 +12,7 @@ class User(Base):
 
     @classmethod
     def get_object(cls, session, id=None, username=None, password=None, role=None):
-        query = super().get_object(session=session, id=id, username=username, password=password, role=role)
+        query = super().get_object(session=session, id=id, username=username, password=password)
         return query
 
 
