@@ -1,6 +1,6 @@
 from typing import Annotated
 
-from fastapi import HTTPException, APIRouter, Depends
+from fastapi import HTTPException, APIRouter, Depends,Response
 from fastapi.security import OAuth2PasswordRequestForm
 from passlib.context import CryptContext
 from sqlalchemy.orm import Session
@@ -31,10 +31,13 @@ async def register(user_params: UserParams, db: Session = Depends(get_db)):
     return {"msg": "User registered successfully"}
 
 @router_token.post('/token')
-async def post_token(form_data: Annotated[OAuth2PasswordRequestForm, Depends()], db: Session = Depends(get_db)):
+async def post_token(form_data: Annotated[OAuth2PasswordRequestForm, Depends()], db: Session = Depends(get_db),  response: Response = None):
     db_user = User.get_object(db, username=form_data.username).first()
     if not db_user or not pwd_context.verify(form_data.password, db_user.password):
         raise HTTPException(status_code=400, detail="Incorrect username or password")
 
     access_token = create_jwt(data={"sub": form_data.username, 'jti': str(db_user.id)})
-    return {"access_token": access_token, "token_type": "bearer"}
+
+    response.set_cookie(key="access_token", value=access_token, httponly=True)  # max_age указывает на время жизни куки
+
+    return {"message": "Login successful"}
