@@ -3,7 +3,7 @@ from datetime import datetime, timedelta
 from typing import Optional
 
 from jose import jwt, JWTError
-from fastapi import HTTPException, Depends
+from fastapi import HTTPException, Depends, Request
 from fastapi.security import OAuth2PasswordBearer
 from sqlalchemy.orm import Session
 
@@ -36,9 +36,16 @@ def decode_jwt(
 
 oauth2_scheme = OAuth2PasswordBearer(tokenUrl="token")
 
-async def get_current_user(access_token: Optional[str] = Depends(oauth2_scheme),  db: Session = Depends(get_db)):
+async def get_current_user(
+    request: Request,
+    access_token: Optional[str] = Depends(oauth2_scheme),
+    db: Session = Depends(get_db)):
+
+    access_token = request.cookies.get("access_token")
+
     if not access_token:
         raise HTTPException(status_code=401, detail="Not authenticated")
+
     try:
         payload = decode_jwt(token=access_token)
         username: str = payload.get("sub")
@@ -47,12 +54,12 @@ async def get_current_user(access_token: Optional[str] = Depends(oauth2_scheme),
 
         if int(datetime.now().timestamp())+10800 > payload.get("exp"):
             raise HTTPException(status_code=401, detail="Token has expired")
-    except JWTError as e:
-        print(e)
+    except JWTError:
         raise HTTPException(status_code=401, detail="Invalid token")
 
     user = User.get_object(db, username=username).first()
 
     if user is None:
         raise HTTPException(status_code=404, detail="User not found")
+
     return user

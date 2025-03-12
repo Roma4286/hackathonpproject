@@ -38,6 +38,6 @@ async def post_token(form_data: Annotated[OAuth2PasswordRequestForm, Depends()],
 
     access_token = create_jwt(data={"sub": form_data.username, 'jti': str(db_user.id)})
 
-    response.set_cookie(key="access_token", value=access_token, httponly=True)  # max_age указывает на время жизни куки
+    response.set_cookie(key="access_token", value=access_token, httponly=True)
 
     return {"message": "Login successful"}
