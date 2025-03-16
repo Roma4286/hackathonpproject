@@ -1,4 +1,5 @@
 from datetime import datetime
+from typing import List
 
 from pydantic import BaseModel
 from sqlalchemy import String, Integer, Text, Boolean, JSON
@@ -6,12 +7,19 @@ from sqlalchemy.orm import Mapped, mapped_column
 
 from src.database import Base, engine
 
-class History(BaseModel):
-    date: datetime
+class Answers(BaseModel):
+    id_news: int
+    answer: bool
     misinformation_level_delta: int
     pollution_delta: int
     trust_science_delta: int
-    answers: list
+
+class History(BaseModel):
+    date: datetime
+    misinformation_level_all_delta: int
+    pollution_all_delta: int
+    trust_science_all_delta: int
+    answers: List[Answers]
 
 class User(Base):
     __tablename__ = "users"
@@ -35,7 +43,8 @@ class News(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     name: Mapped[str] = mapped_column(String(30))
     text: Mapped[str] = mapped_column(Text())
-    explanation: Mapped[str] = mapped_column(Text())
+    reply_if_correct: Mapped[str] = mapped_column(Text())
+    reply_if_wrong: Mapped[str] = mapped_column(Text())
     is_true: Mapped[bool] = mapped_column(Boolean, default=True)
     misinformation_level_delta: Mapped[int] = mapped_column(Integer)
     pollution_delta: Mapped[int] = mapped_column(Integer)

@@ -6,6 +6,10 @@ from pydantic.v1 import BaseSettings
 
 load_dotenv()
 
+REDIS_HOST = os.getenv('REDIS_HOST')
+REDIS_PORT = os.getenv('REDIS_PORT')
+REDIS_DB = os.getenv('REDIS_DB')
+
 DB_HOST = os.getenv('DB_HOST')
 DB_PORT = os.getenv('DB_PORT')
 DB_NAME = os.getenv('DB_NAME')
@@ -14,6 +18,11 @@ DB_PASSWORD = os.getenv('DB_PASSWORD')
 
 BASE_DIR = Path(__file__).parent.parent.parent
 
+
+class RedisDb(BaseModel):
+    host: str = REDIS_HOST
+    port: int = int(REDIS_PORT)
+    db: int = int(REDIS_DB)
 
 class AuthJWT(BaseModel):
     private_key_path: Path = BASE_DIR / "certs" / "jwt-private.pem"
@@ -24,6 +33,7 @@ class AuthJWT(BaseModel):
 class Settings(BaseSettings):
     db_url: str = f"postgresql+psycopg2://{DB_USER}:{DB_PASSWORD}@{DB_HOST}:{DB_PORT}/{DB_NAME}"
 
+    redis: RedisDb = RedisDb()
     auth_jwt: AuthJWT = AuthJWT()
 
 settings = Settings()
