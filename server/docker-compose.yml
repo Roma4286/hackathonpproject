@@ -1,0 +1,24 @@
+services:
+  db:
+    image: postgres:16
+    container_name: db_app
+    command: -p 5432
+    env_file:
+      - .env-non-dev
+
+  redis:
+    image: redis:7
+    container_name: redis_app
+    command: --port 6379
+
+  app:
+    depends_on:
+      - db
+      - redis
+    build: .
+    env_file:
+      - .env-non-dev
+    container_name: fastapi_app
+    command: ["sh", "-c", "alembic upgrade head && uvicorn src.api.main:app --host 0.0.0.0 --port 8000"]
+    ports:
+      - "8000:8000"
