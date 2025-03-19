@@ -48,11 +48,11 @@ async def get_current_user(
 
     try:
         payload = decode_jwt(token=access_token)
-        username: str = payload.get("sub")
+        username: Optional[str] = payload.get("sub")
         if username is None:
             raise HTTPException(status_code=401, detail="Invalid token")
 
-        if int(datetime.now().timestamp())+10800 > payload.get("exp"):
+        if datetime.now().timestamp() > payload.get("exp"):
             raise HTTPException(status_code=401, detail="Token has expired")
     except JWTError:
         raise HTTPException(status_code=401, detail="Invalid token")
