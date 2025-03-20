@@ -13,7 +13,7 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
     if (!user && !isLoading) {
       router.replace("/auth/login");
     }
-  }, [user, router]);
+  }, [user, router, isLoading]);
 
   if (isLoading) {
     return <Loading />;
