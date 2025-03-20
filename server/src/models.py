@@ -1,18 +1,7 @@
-from datetime import datetime
-
-from pydantic import BaseModel
-from sqlalchemy import String, Integer, Text, Boolean, JSON
+from sqlalchemy import String, Integer, Text, Boolean
 from sqlalchemy.orm import Mapped, mapped_column
 
 from src.database import Base, engine
-
-class History(BaseModel):
-    date: datetime
-    id_news: int
-    answer: bool
-    misinformation_level_delta: int
-    pollution_delta: int
-    trust_science_delta: int
 
 class User(Base):
     __tablename__ = "users"
@@ -23,7 +12,6 @@ class User(Base):
     misinformation_level: Mapped[int] = mapped_column(Integer, default=0)
     pollution: Mapped[int] = mapped_column(Integer, default=0)
     trust_science: Mapped[int] = mapped_column(Integer, default=0)
-    history: Mapped[list] = mapped_column(JSON, default=list)
 
     @classmethod
     def get_object(cls, session, id=None, username=None, password=None):
