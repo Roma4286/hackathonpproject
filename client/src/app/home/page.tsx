@@ -1,3 +1,5 @@
+import NextButton from "@/components/ui/pixelated-button";
+
 export default function HomePage() {
   return (
     <div>
