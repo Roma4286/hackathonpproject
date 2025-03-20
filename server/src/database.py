@@ -1,4 +1,3 @@
-from redis import Redis
 from sqlalchemy import create_engine
 from sqlalchemy.orm import DeclarativeBase, sessionmaker
 from fastapi import HTTPException
@@ -36,14 +35,3 @@ def get_db():
         yield db
     finally:
         db.close()
-
-redis_client = Redis(host=settings.redis.host, port=settings.redis.port, db=settings.redis.db)
-
-def redis_get_value(key):
-    item = redis_client.get(f'game:{key}')
-
-    if not item:
-        raise HTTPException(status_code=404, detail="Not found")
-
-    decoded_str = item.decode('utf-8')
-    return decoded_str
