@@ -4,6 +4,7 @@ import { ReactNode, useEffect } from "react";
 import { useUserQuery } from "@/hooks/useUserQuery";
 import { useRouter } from "next/navigation";
 import Loading from "../loading";
+import Background from "@/components/background";
 
 export default function AuthLayout({ children }: { children: ReactNode }) {
   const router = useRouter();
@@ -19,5 +20,5 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
     return <Loading />;
   }
 
-  return children;
+  return <Background>{children}</Background>;
 }

@@ -24,9 +24,11 @@ class ApiClient {
   }
 
   static async getUser() {
-    return await axios.get<User>("/user", {
+    const res = await axios.get<{ data: User }>("/user", {
       headers: { Authorization: "Bearer undefined" },
     });
+
+    return res.data.data;
   }
 }
 
