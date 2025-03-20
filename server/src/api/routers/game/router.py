@@ -21,8 +21,16 @@ async def get_random_news(user: User = Depends(get_current_user), db: Session = 
 
 @router.post('/check_answer')
 async def check_answer(news_id: int, answer: bool, user: User = Depends(get_current_user), db: Session = Depends(get_db)):
-    news = News.get_object(db).first()
+    news = News.get_object(db, id=news_id).first()
     if answer == news.is_true:
+        user.misinformation_level = user.misinformation_level + news.misinformation_level_delta
+        user.pollution = user.pollution + news.pollution_delta
+        user.trust_science = user.trust_science + news.trust_science_delta
+        user.save(db)
         return {"message": news.reply_if_correct}
 
+    user.misinformation_level = user.misinformation_level - news.misinformation_level_delta
+    user.pollution = user.pollution - news.pollution_delta
+    user.trust_science = user.trust_science - news.trust_science_delta
+    user.save(db)
     return {"message": news.reply_if_wrong}
