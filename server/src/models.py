@@ -7,19 +7,13 @@ from sqlalchemy.orm import Mapped, mapped_column
 
 from src.database import Base, engine
 
-class Answers(BaseModel):
+class History(BaseModel):
+    date: datetime
     id_news: int
     answer: bool
     misinformation_level_delta: int
     pollution_delta: int
     trust_science_delta: int
-
-class History(BaseModel):
-    date: datetime
-    misinformation_level_all_delta: int
-    pollution_all_delta: int
-    trust_science_all_delta: int
-    answers: List[Answers]
 
 class User(Base):
     __tablename__ = "users"

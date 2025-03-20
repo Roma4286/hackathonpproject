@@ -28,7 +28,7 @@ async def register(user_params: UserParams, db: Session = Depends(get_db)):
     hashed_password = pwd_context.hash(user_params.password)
     new_user = User(username=user_params.username, password=hashed_password)
     new_user.save(db)
-    return {"msg": "User registered successfully"}
+    return {"message": "User registered successfully"}
 
 @router_token.post('/token')
 async def post_token(form_data: Annotated[OAuth2PasswordRequestForm, Depends()], db: Session = Depends(get_db),  response: Response = None):
