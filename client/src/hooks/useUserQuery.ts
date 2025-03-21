@@ -1,9 +1,10 @@
 import ApiClient from "@/api/client";
 import { useQuery } from "@tanstack/react-query";
+import { QueryKeys } from "./queryKeys";
 
 export function useUserQuery() {
   const { data, ...rest } = useQuery({
-    queryKey: ["user"],
+    queryKey: [QueryKeys.USER],
     queryFn: () => ApiClient.getUser(),
   });
 

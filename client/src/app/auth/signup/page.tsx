@@ -8,13 +8,13 @@ import Link from "next/link";
 import { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
 import { showMessage } from "@/lib/showMessage";
-import { ApiError } from "@/api/types/apiError";
+import { RawApiError } from "@/api/types/apiError";
 
 export default function LoginPage() {
   const router = useRouter();
   const { mutate, isPending } = useMutation<
     void,
-    AxiosError<ApiError>,
+    AxiosError<RawApiError>,
     LoginDto
   >({
     mutationFn: (data) => ApiClient.signup(data),

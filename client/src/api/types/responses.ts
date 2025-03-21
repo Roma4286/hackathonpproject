@@ -11,3 +11,7 @@ export type User = {
   trust_science: number;
   general_condition: "Bad" | "Normal" | "Excellent";
 };
+
+export type CheckAnswerResponse = {
+  message: string;
+};
