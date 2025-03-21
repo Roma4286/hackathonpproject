@@ -8,6 +8,7 @@ import { ApiError, LoginDto } from "@/api/auth.dto";
 import Link from "next/link";
 import { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
+import { showMessage } from "@/lib/showMessage";
 
 export default function LoginPage() {
   const router = useRouter();
@@ -18,15 +19,15 @@ export default function LoginPage() {
   >({
     mutationFn: (data) => ApiClient.signup(data),
     onSuccess: () => {
-      toast.success("Your account has been successfully created");
+      showMessage("Your account has been successfully created");
       router.push("/auth/login");
     },
     onError: (error) => {
       const details = error.response?.data.detail;
       if (typeof details === "string") {
-        toast.error(details);
+        showMessage(details);
       } else {
-        toast.error("An error occurred");
+        showMessage("An error occurred");
       }
     },
   });
