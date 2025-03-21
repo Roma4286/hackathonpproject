@@ -3,16 +3,17 @@
 import { LoginForm } from "../login-form";
 import { useMutation } from "@tanstack/react-query";
 import ApiClient from "@/api/client";
-import { ApiError, LoginDto } from "@/api/auth.dto";
+import { LoginDto } from "@/api/types/auth.dto";
 import Link from "next/link";
 import { AxiosError } from "axios";
 import { useRouter } from "next/navigation";
 import { showMessage } from "@/lib/showMessage";
+import { ApiError } from "@/api/types/apiError";
 
 export default function LoginPage() {
   const router = useRouter();
-  const { mutateAsync, isPending } = useMutation<
-    unknown,
+  const { mutate, isPending } = useMutation<
+    void,
     AxiosError<ApiError>,
     LoginDto
   >({
@@ -41,7 +42,7 @@ export default function LoginPage() {
           </p>
         </div>
         <LoginForm
-          onSubmit={mutateAsync}
+          onSubmit={mutate}
           disabled={isPending}
           type="login"
           className="mt-6"

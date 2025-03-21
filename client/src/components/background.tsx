@@ -1,5 +1,5 @@
 "use client";
-import { User } from "@/api/auth.dto";
+import { User } from "@/api/types/auth.dto";
 import { useUserQuery } from "@/hooks/useUserQuery";
 import { cn } from "@/lib/utils";
 import { ComponentProps } from "react";

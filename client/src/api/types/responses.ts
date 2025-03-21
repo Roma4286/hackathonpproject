@@ -1,6 +1,7 @@
-export type LoginDto = {
-  password: string;
-  username: User["username"];
+export type News = {
+  news_id: number;
+  name: string;
+  text: string;
 };
 
 export type User = {
@@ -9,8 +10,4 @@ export type User = {
   pollution: number;
   trust_science: number;
   general_condition: "Bad" | "Normal" | "Excellent";
-};
-
-export type ApiError = {
-  detail: string | unknown[];
 };

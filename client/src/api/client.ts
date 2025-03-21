@@ -1,5 +1,6 @@
 import axiosCLient from "axios";
-import { LoginDto, User } from "./auth.dto";
+import { LoginDto } from "./types/auth.dto";
+import { User, News } from "./types/responses";
 
 const axios = axiosCLient.create({
   baseURL: process.env.NEXT_PUBLIC_SERVER_URL,
@@ -28,6 +29,11 @@ class ApiClient {
       headers: { Authorization: "Bearer undefined" },
     });
 
+    return res.data.data;
+  }
+
+  static async getRandomNews() {
+    const res = await axios.get<{ data: News }>("/game/random_news");
     return res.data.data;
   }
 }
