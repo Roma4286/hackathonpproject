@@ -18,7 +18,7 @@ export default function HomePage() {
 
   return (
     <main className="h-dvh flex flex-col justify-center items-center">
-      <Card innerClassName="flex flex-col gap-4">
+      <Card className="flex flex-col gap-4">
         <h1 className="text-2xl font-bold text-primary ">
           Welcome to the Home Page
         </h1>
