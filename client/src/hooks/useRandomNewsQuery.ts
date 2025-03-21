@@ -5,6 +5,7 @@ export function useRandomNewsQuery() {
   const { data, ...rest } = useQuery({
     queryKey: [],
     queryFn: () => ApiClient.getRandomNews(),
+    refetchOnWindowFocus: false,
   });
 
   return { news: data, ...rest };

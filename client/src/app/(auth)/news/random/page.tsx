@@ -2,19 +2,27 @@
 
 import Button from "@/components/ui/button";
 import Card from "@/components/ui/card";
+
 import useCheckAnswerMutation from "@/hooks/useCheckAnswerMutation";
 import { useRandomNewsQuery } from "@/hooks/useRandomNewsQuery";
+
 import Link from "next/link";
 
 export default function RandomNews() {
-  const { news, isLoading } = useRandomNewsQuery();
+  const { news, isFetching, refetch } = useRandomNewsQuery();
   const {
     mutate,
+    reset,
     isPending: isMutationPending,
     data,
   } = useCheckAnswerMutation();
 
-  if (isLoading) {
+  function restart() {
+    refetch();
+    reset();
+  }
+
+  if (isFetching) {
     return <Card className="w-96">Loading...</Card>;
   }
 
@@ -30,14 +38,16 @@ export default function RandomNews() {
 
   if (data) {
     return (
-      <Card>
+      <Card className="space-y-4">
         <h1>{data.message}</h1>
-        <Button asChild>
-          <Link href="/home">Go home</Link>
-        </Button>
-        <Button asChild variant={"secondary"}>
-          <Link href="/news/random">Next news</Link>
-        </Button>
+        <div className="flex gap-4 justify-center">
+          <Button asChild>
+            <Link href="/home">Go home</Link>
+          </Button>
+          <Button onClick={restart} variant={"secondary"}>
+            Next news
+          </Button>
+        </div>
       </Card>
     );
   }
