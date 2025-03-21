@@ -1,37 +1,41 @@
 "use client";
-import { User } from "@/api/types/auth.dto";
+
+import { User } from "@/api/types/responses";
 import { useUserQuery } from "@/hooks/useUserQuery";
 import { cn } from "@/lib/utils";
 import { ComponentProps } from "react";
 
-type BackgroundProps = ComponentProps<"div">;
+type WorldCondition = User["general_condition"];
 
-const imageMap: Record<User["general_condition"], string> = {
-  Bad: "bad-background.png",
-  Normal: "normal-background.png",
-  Excellent: "excellent-background.png",
+type BackgroundProps = ComponentProps<"div"> & {
+  condition?: WorldCondition;
+};
+
+const imageMap: Record<WorldCondition, string> = {
+  Bad: "/bad-background.png",
+  Normal: "/normal-background.png",
+  Excellent: "/excellent-background.png",
 };
 
 export default function Background({
   children,
   className,
   style,
+  condition,
   ...props
 }: BackgroundProps) {
-  const { user } = useUserQuery();
-
-  if (!user) {
+  if (!condition) {
     return null;
   }
 
-  const image = imageMap[user.general_condition];
+  const imageUrl = imageMap[condition];
 
   return (
     <div>
       <div
         className={cn(`fixed -z-100 inset-0`, className)}
         style={{
-          backgroundImage: image ? `url(${image})` : undefined,
+          backgroundImage: imageUrl ? `url(${imageUrl})` : undefined,
           backgroundSize: "cover",
           backgroundPosition: "center",
           backgroundBlendMode: "darken",

@@ -20,5 +20,7 @@ export default function AuthLayout({ children }: { children: ReactNode }) {
     return <Loading />;
   }
 
-  return <Background>{children}</Background>;
+  return (
+    <Background condition={user?.general_condition}>{children}</Background>
+  );
 }
