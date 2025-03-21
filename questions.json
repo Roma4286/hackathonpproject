@@ -5,8 +5,8 @@
     "reply_if_correct": "Correct! This breakthrough could help reduce global carbon emissions.",
     "reply_if_wrong": "Incorrect. This is a real scientific discovery that could combat climate change.",
     "is_true": true,
-    "misinformation_level_delta": -1,
-    "pollution_delta": -2,
+    "misinformation_level_delta": 1,
+    "pollution_delta": 2,
     "trust_science_delta": 1
   },
   {
@@ -17,7 +17,7 @@
     "is_true": false,
     "misinformation_level_delta": 2,
     "pollution_delta": 0,
-    "trust_science_delta": -2
+    "trust_science_delta": 2
   },
   {
     "name": "Bleach Cure",
@@ -27,7 +27,7 @@
     "is_true": false,
     "misinformation_level_delta": 3,
     "pollution_delta": 0,
-    "trust_science_delta": -3
+    "trust_science_delta": 3
   },
   {
     "name": "Earth Shape",
@@ -36,6 +36,206 @@
     "reply_if_wrong": "Incorrect. While the Earth isn’t a perfect sphere, it is definitely not flat.",
     "is_true": true,
     "misinformation_level_delta": -1,
+    "pollution_delta": 0,
+    "trust_science_delta": 1
+  },
+  {
+    "name": "AI Doctors",
+    "text": "AI-powered doctors can now diagnose diseases as accurately as human doctors.",
+    "reply_if_correct": "Correct! AI is becoming increasingly reliable in medical diagnostics.",
+    "reply_if_wrong": "Incorrect. AI-assisted diagnosis is a reality and is already helping doctors worldwide.",
+    "is_true": true,
+    "misinformation_level_delta": 0,
+    "pollution_delta": 0,
+    "trust_science_delta": 2
+  },
+  {
+    "name": "Moon Landing Hoax",
+    "text": "The moon landing was faked by the U.S. government.",
+    "reply_if_correct": "Correct! The moon landings were real and extensively documented.",
+    "reply_if_wrong": "Incorrect. Conspiracy theories like this ignore overwhelming scientific evidence.",
+    "is_true": false,
+    "misinformation_level_delta": 3,
+    "pollution_delta": 0,
+    "trust_science_delta": 3
+  },
+  {
+    "name": "Solar Panels",
+    "text": "Solar panels can generate electricity even on cloudy days.",
+    "reply_if_correct": "Correct! While efficiency drops, solar panels still produce energy in low light conditions.",
+    "reply_if_wrong": "Incorrect. Solar panels do work in cloudy weather, just with lower efficiency.",
+    "is_true": true,
+    "misinformation_level_delta": -1,
+    "pollution_delta": 2,
+    "trust_science_delta": 1
+  },
+  {
+    "name": "Flat Earth",
+    "text": "Scientists have admitted that the Earth is actually flat.",
+    "reply_if_correct": "Correct! The Earth is an oblate spheroid, not flat.",
+    "reply_if_wrong": "Incorrect. The flat Earth theory is a debunked conspiracy with no scientific basis.",
+    "is_true": false,
+    "misinformation_level_delta": 3,
+    "pollution_delta": 0,
+    "trust_science_delta": 3
+  },
+  {
+    "name": "Antibiotic Resistance",
+    "text": "Overuse of antibiotics is leading to drug-resistant bacteria.",
+    "reply_if_correct": "Correct! Antibiotic resistance is a growing global health concern.",
+    "reply_if_wrong": "Incorrect. This is a real issue that threatens modern medicine.",
+    "is_true": true,
+    "misinformation_level_delta": 0,
+    "pollution_delta": 0,
+    "trust_science_delta": 2
+  },
+  {
+    "name": "Teleportation",
+    "text": "Scientists have successfully teleported a human.",
+    "reply_if_correct": "Correct! No human has been teleported; only quantum particles have been teleported.",
+    "reply_if_wrong": "Incorrect. While quantum teleportation exists, human teleportation remains science fiction.",
+    "is_true": false,
+    "misinformation_level_delta": 2,
+    "pollution_delta": 0,
+    "trust_science_delta": 2
+  },
+  {
+    "name": "Electric Cars",
+    "text": "Electric cars produce zero emissions while driving.",
+    "reply_if_correct": "Correct! While they do not emit pollutants while driving, their production and electricity use have some environmental impact.",
+    "reply_if_wrong": "Incorrect. While not completely emission-free, electric cars are far cleaner than gasoline vehicles.",
+    "is_true": true,
+    "misinformation_level_delta": -1,
+    "pollution_delta": 3,
+    "trust_science_delta": 1
+  },
+  {
+    "name": "Climate Change Hoax",
+    "text": "Climate change is a hoax created by scientists.",
+    "reply_if_correct": "Correct! Climate change is backed by overwhelming scientific evidence.",
+    "reply_if_wrong": "Incorrect. Denying climate change ignores extensive scientific research and data.",
+    "is_true": false,
+    "misinformation_level_delta": 3,
+    "pollution_delta": 0,
+    "trust_science_delta": 3
+  },
+  {
+    "name": "Microchips in Vaccines",
+    "text": "COVID-19 vaccines contain microchips to track people.",
+    "reply_if_correct": "Correct! This is a conspiracy theory with no basis in reality.",
+    "reply_if_wrong": "Incorrect. There is no scientific evidence that vaccines contain tracking microchips.",
+    "is_true": false,
+    "misinformation_level_delta": 3,
+    "pollution_delta": 0,
+    "trust_science_delta": 3
+  },
+  {
+    "name": "Fusion Energy",
+    "text": "Scientists are close to achieving unlimited clean fusion energy.",
+    "reply_if_correct": "Correct! Fusion research is progressing, but practical energy generation is still years away.",
+    "reply_if_wrong": "Incorrect. Fusion power is promising, but not yet ready for large-scale use.",
+    "is_true": true,
+    "misinformation_level_delta": 0,
+    "pollution_delta": 2,
+    "trust_science_delta": 1
+  },
+  {
+    "name": "Artificial Meat",
+    "text": "Scientists have developed lab-grown meat that is nearly identical to traditional meat.",
+    "reply_if_correct": "Correct! Lab-grown meat is a real innovation that could reduce environmental impact.",
+    "reply_if_wrong": "Incorrect. This technology is already being tested and sold in some countries.",
+    "is_true": true,
+    "misinformation_level_delta": -1,
+    "pollution_delta": 2,
+    "trust_science_delta": 1
+  },
+  {
+    "name": "Alien Signals",
+    "text": "Astronomers have confirmed receiving messages from an extraterrestrial civilization.",
+    "reply_if_correct": "Correct! There is no confirmed evidence of alien messages.",
+    "reply_if_wrong": "Incorrect. No verified extraterrestrial communication has been detected.",
+    "is_true": false,
+    "misinformation_level_delta": 2,
+    "pollution_delta": 0,
+    "trust_science_delta": 2
+  },
+  {
+    "name": "Supervolcano Eruption",
+    "text": "A major supervolcano is about to erupt within the next year.",
+    "reply_if_correct": "Correct! There is no evidence that any supervolcano is about to erupt soon.",
+    "reply_if_wrong": "Incorrect. While supervolcanoes pose a risk, no imminent eruption has been predicted.",
+    "is_true": false,
+    "misinformation_level_delta": 2,
+    "pollution_delta": 0,
+    "trust_science_delta": 2
+  },
+  {
+    "name": "Plastic Eating Bacteria",
+    "text": "Scientists have discovered bacteria that can break down plastic waste.",
+    "reply_if_correct": "Correct! Researchers have found bacteria that degrade plastic, offering hope for pollution reduction.",
+    "reply_if_wrong": "Incorrect. This is a real discovery that could help address plastic waste problems.",
+    "is_true": true,
+    "misinformation_level_delta": 0,
+    "pollution_delta": 2,
+    "trust_science_delta": 1
+  },
+  {
+    "name": "Mars Colony",
+    "text": "NASA has successfully established a human colony on Mars.",
+    "reply_if_correct": "Correct! No human colony exists on Mars yet, though research is ongoing.",
+    "reply_if_wrong": "Incorrect. While Mars missions are planned, no humans have colonized the planet.",
+    "is_true": false,
+    "misinformation_level_delta": 2,
+    "pollution_delta": 0,
+    "trust_science_delta": 2
+  },
+  {
+    "name": "Dark Matter",
+    "text": "Scientists have directly observed dark matter for the first time.",
+    "reply_if_correct": "Correct! Dark matter has not been directly observed yet.",
+    "reply_if_wrong": "Incorrect. While its effects are detected, dark matter itself remains elusive.",
+    "is_true": false,
+    "misinformation_level_delta": 1,
+    "pollution_delta": 0,
+    "trust_science_delta": 1
+  },
+  {
+    "name": "Brain Uploading",
+    "text": "Scientists have successfully uploaded a human brain into a computer.",
+    "reply_if_correct": "Correct! This remains science fiction, though brain-mapping technology is advancing.",
+    "reply_if_wrong": "Incorrect. Uploading human consciousness is far beyond our current technology.",
+    "is_true": false,
+    "misinformation_level_delta": 3,
+    "pollution_delta": 0,
+    "trust_science_delta": 3
+  },
+  {
+    "name": "Water on the Moon",
+    "text": "NASA has confirmed large amounts of water on the Moon.",
+    "reply_if_correct": "Correct! Water has been detected on the Moon, though mostly in small amounts as ice.",
+    "reply_if_wrong": "Incorrect. There is evidence of lunar water, but not in large amounts.",
+    "is_true": true,
+    "misinformation_level_delta": 0,
+    "pollution_delta": 1,
+    "trust_science_delta": 1
+  },
+  {
+    "name": "Bioengineered Organs",
+    "text": "Doctors have successfully transplanted a fully bioengineered organ into a human.",
+    "reply_if_correct": "Correct! Scientists are working on bioengineered organs, but fully functional transplants are still in development.",
+    "reply_if_wrong": "Incorrect. While progress is being made, we are not yet at this stage.",
+    "is_true": false,
+    "misinformation_level_delta": 2,
+    "pollution_delta": 0,
+    "trust_science_delta": 2
+  },
+  {
+    "name": "Quantum Computers",
+    "text": "Quantum computers have surpassed classical computers in solving real-world problems.",
+    "reply_if_correct": "Correct! While quantum computers have made progress, they are not yet practical for most real-world applications.",
+    "reply_if_wrong": "Incorrect. Quantum computing is advancing, but classical computers still dominate most tasks.",
+    "is_true": false,
+    "misinformation_level_delta": 1,
     "pollution_delta": 0,
     "trust_science_delta": 1
   }
