@@ -62,7 +62,7 @@ export function LoginForm({ className, onSubmit, disabled, type }: Props) {
         disabled={disabled}
         className="w-full"
       >
-        Login
+        {type === "login" ? "Login" : "Sign up"}
       </Button>
     </form>
   );
