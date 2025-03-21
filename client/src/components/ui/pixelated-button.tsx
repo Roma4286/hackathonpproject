@@ -4,7 +4,7 @@ import { cva, VariantProps } from "class-variance-authority";
 import { ComponentProps } from "react";
 
 const buttonVariants = cva(
-  "font-pixelated select-none relative text-center transition-transform border-2 px-3 py-1 min-w-[120px] text-sm uppercase before:absolute before:inset-0 before:border-r-2 before:border-b-2 before:border-black/30 after:absolute after:inset-0 after:border-l-2 after:border-t-2 after:border-white/30 active:translate-y-[2px] active:translate-x-[2px] active:shadow-none",
+  "font-pixelated select-none relative text-center transition-transform border-2 px-3 py-1 min-w-[120px] text-sm uppercase before:absolute before:inset-0 before:border-r-2 before:border-b-2 before:border-black/30 after:absolute after:inset-0 after:border-l-2 after:border-t-2 after:border-white/30 active:translate-y-[2px] active:translate-x-[2px] active:shadow-none shadow-[6px_6px_0px_0px]",
   {
     variants: {
       variant: {
