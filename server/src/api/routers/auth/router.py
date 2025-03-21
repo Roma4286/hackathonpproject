@@ -43,7 +43,7 @@ async def post_token(form_data: Annotated[OAuth2PasswordRequestForm, Depends()],
         value=access_token,
         httponly=True,
         secure=True,
-        samesite="Lax"
+        samesite=None
     )
 
     return {"message": "Login successful"}
