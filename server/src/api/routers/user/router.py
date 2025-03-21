@@ -11,7 +11,7 @@ router = APIRouter(
     tags=["User"]
 )
 
-@router.get('/', include_in_schema=False)
+@router.get('')
 async def get_user(user: User = Depends(get_current_user)):
     sum_params = user.misinformation_level + user.pollution + user.trust_science
     if sum_params <= -20:
