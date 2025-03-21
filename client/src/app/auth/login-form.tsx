@@ -2,11 +2,10 @@
 
 import type React from "react";
 import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useState } from "react";
-import PixelatedButton from "@/components/ui/pixelated-button";
+import Button from "@/components/ui/button";
 
 type FormFields = {
   username: string;
@@ -57,14 +56,14 @@ export function LoginForm({ className, onSubmit, disabled, type }: Props) {
         />
       </Label>
 
-      <PixelatedButton
+      <Button
         onClick={handleSubmit}
         type="button"
         disabled={disabled}
         className="w-full"
       >
         Login
-      </PixelatedButton>
+      </Button>
     </form>
   );
 }

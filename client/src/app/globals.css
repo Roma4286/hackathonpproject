@@ -113,6 +113,97 @@
   --sidebar-ring: oklch(0.552 0.016 285.938);
 }
 
+@utility pixel-corners-sm {
+  clip-path: polygon(
+    0px calc(100% - 4px),
+    4px calc(100% - 4px),
+    4px 100%,
+    calc(100% - 4px) 100%,
+    calc(100% - 4px) calc(100% - 4px),
+    100% calc(100% - 4px),
+    100% 4px,
+    calc(100% - 4px) 4px,
+    calc(100% - 4px) 0px,
+    4px 0px,
+    4px 4px,
+    0px 4px
+  );
+}
+
+@utility pixel-corners {
+  clip-path: polygon(
+    0px calc(100% - 16px),
+    4px calc(100% - 16px),
+    4px calc(100% - 8px),
+    8px calc(100% - 8px),
+    8px calc(100% - 4px),
+    16px calc(100% - 4px),
+    16px 100%,
+    calc(100% - 16px) 100%,
+    calc(100% - 16px) calc(100% - 4px),
+    calc(100% - 8px) calc(100% - 4px),
+    calc(100% - 8px) calc(100% - 8px),
+    calc(100% - 4px) calc(100% - 8px),
+    calc(100% - 4px) calc(100% - 16px),
+    100% calc(100% - 16px),
+    100% 16px,
+    calc(100% - 4px) 16px,
+    calc(100% - 4px) 8px,
+    calc(100% - 8px) 8px,
+    calc(100% - 8px) 4px,
+    calc(100% - 16px) 4px,
+    calc(100% - 16px) 0px,
+    16px 0px,
+    16px 4px,
+    8px 4px,
+    8px 8px,
+    4px 8px,
+    4px 16px,
+    0px 16px
+  );
+}
+
+@utility pixel-corners-lg {
+  clip-path: polygon(
+    0px calc(100% - 20px),
+    4px calc(100% - 20px),
+    4px calc(100% - 12px),
+    8px calc(100% - 12px),
+    8px calc(100% - 8px),
+    12px calc(100% - 8px),
+    12px calc(100% - 4px),
+    20px calc(100% - 4px),
+    20px 100%,
+    calc(100% - 20px) 100%,
+    calc(100% - 20px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 4px),
+    calc(100% - 12px) calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 8px),
+    calc(100% - 8px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 12px),
+    calc(100% - 4px) calc(100% - 20px),
+    100% calc(100% - 20px),
+    100% 20px,
+    calc(100% - 4px) 20px,
+    calc(100% - 4px) 12px,
+    calc(100% - 8px) 12px,
+    calc(100% - 8px) 8px,
+    calc(100% - 12px) 8px,
+    calc(100% - 12px) 4px,
+    calc(100% - 20px) 4px,
+    calc(100% - 20px) 0px,
+    20px 0px,
+    20px 4px,
+    12px 4px,
+    12px 8px,
+    8px 8px,
+    8px 12px,
+    4px 12px,
+    4px 20px,
+    0px 20px
+  );
+}
+
 @layer base {
   * {
     @apply border-border outline-ring/50;
