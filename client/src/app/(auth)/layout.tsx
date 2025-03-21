@@ -6,14 +6,19 @@ import { useRouter } from "next/navigation";
 import Loading from "../loading";
 import Background from "@/components/background";
 import { showMessage } from "@/lib/showMessage";
+import { getIntroCompleted } from "./intro/introCompletedHelper";
 
 export default function AuthLayout({ children }: { children: ReactNode }) {
   const router = useRouter();
   const { user, isLoading } = useUserQuery();
 
   useEffect(() => {
+    const introCompleted = getIntroCompleted();
+
     if (!user && !isLoading) {
       router.replace("/auth/login");
+    } else if (!introCompleted) {
+      router.replace("/intro");
     }
   }, [user, router, isLoading]);
 
