@@ -40,7 +40,6 @@ export default function useCheckAnswerMutation({
     },
     onSuccess: (data, variables, context) => {
       queryClient.refetchQueries({ queryKey: [QueryKeys.USER] });
-      showMessage(data.message);
       onSuccess?.(data, variables, context);
     },
     ...options,

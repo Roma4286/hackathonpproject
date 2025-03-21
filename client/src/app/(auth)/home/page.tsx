@@ -51,7 +51,7 @@ export default function HomePage() {
         </div>
 
         <Button asChild>
-          <Link href={"/random-news"}>Get random news</Link>
+          <Link href={"/news/random"}>Get random news</Link>
         </Button>
       </Card>
     </main>
