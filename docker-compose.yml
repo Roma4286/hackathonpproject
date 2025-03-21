@@ -4,14 +4,14 @@ services:
     container_name: db_app
     command: -p 5432
     env_file:
-      - .env-non-dev
+      - server/.env-non-dev
 
   app:
     depends_on:
       - db
     build: .
     env_file:
-      - .env-non-dev
+      - server/.env-non-dev
     container_name: fastapi_app
     command: ["sh", "-c", "alembic upgrade head && uvicorn src.api.main:app --host 0.0.0.0 --port 8000"]
     ports:
