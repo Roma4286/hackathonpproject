@@ -9,6 +9,7 @@ class User(Base):
     id: Mapped[int] = mapped_column(primary_key=True)
     username: Mapped[str] = mapped_column(String(30))
     password: Mapped[str] = mapped_column(String(200))
+    passed_intro: Mapped[bool] = mapped_column(default=False)
     misinformation_level: Mapped[int] = mapped_column(Integer, default=0)
     pollution: Mapped[int] = mapped_column(Integer, default=0)
     trust_science: Mapped[int] = mapped_column(Integer, default=0)
