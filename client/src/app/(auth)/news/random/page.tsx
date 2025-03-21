@@ -14,19 +14,15 @@ export default function RandomNews() {
     data,
   } = useCheckAnswerMutation();
 
-  // if (isLoading) {
-  //   return <Card className="w-96">Loading...</Card>;
-  // }
+  if (isLoading) {
+    return <Card className="w-96">Loading...</Card>;
+  }
 
-  // if (!news) {
-  //   return <Card>News not found</Card>;
-  // }
+  if (!news) {
+    return <Card>News not found</Card>;
+  }
 
-  // const { name, news_id, text } = news;
-
-  const text = "hujhujhujhujhujhujhujhujhujhujhujhujhuj";
-  const name = "hujhuj";
-  const news_id = 1;
+  const { name, news_id, text } = news;
 
   const handleAnswer = (answer: boolean) => {
     mutate({ news_id, answer });
