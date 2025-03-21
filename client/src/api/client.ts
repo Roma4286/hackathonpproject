@@ -8,6 +8,9 @@ const axios = axiosCLient.create({
   withCredentials: true,
   timeout: 5000,
   timeoutErrorMessage: "The request took too long to complete.",
+  headers: {
+    Authorization: "Bearer undefined",
+  },
 });
 
 class ApiClient {
@@ -26,9 +29,7 @@ class ApiClient {
   }
 
   static async getUser() {
-    const res = await axios.get<{ data: User }>("/user", {
-      headers: { Authorization: "Bearer undefined" },
-    });
+    const res = await axios.get<{ data: User }>("/user");
 
     return res.data.data;
   }
