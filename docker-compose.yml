@@ -13,6 +13,6 @@ services:
     env_file:
       - server/.env-non-dev
     container_name: fastapi_app
-    command: ["sh", "-c", "alembic upgrade head && uvicorn src.api.main:app --host 0.0.0.0 --port 8000"]
+    command: ["sh", "-c", "alembic upgrade head && uvicorn src.api.main:app --host 0.0.0.0 --port 8000 --proxy-headers --forwarded-allow-ips='*'"]
     ports:
       - "8000:8000"
