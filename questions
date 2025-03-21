@@ -1,0 +1,42 @@
+[
+  {
+    "name": "CO2 Removal",
+    "text": "Scientists have discovered a new way to remove CO2 from the air.",
+    "reply_if_correct": "Correct! This breakthrough could help reduce global carbon emissions.",
+    "reply_if_wrong": "Incorrect. This is a real scientific discovery that could combat climate change.",
+    "is_true": true,
+    "misinformation_level_delta": -1,
+    "pollution_delta": -2,
+    "trust_science_delta": 1
+  },
+  {
+    "name": "5G Radiation",
+    "text": "5G towers are spreading dangerous radiation that harms people.",
+    "reply_if_correct": "Correct! There is no scientific evidence that 5G radiation is harmful.",
+    "reply_if_wrong": "Incorrect. Misinformation like this causes unnecessary fear and distrust in technology.",
+    "is_true": false,
+    "misinformation_level_delta": 2,
+    "pollution_delta": 0,
+    "trust_science_delta": -2
+  },
+  {
+    "name": "Bleach Cure",
+    "text": "Drinking bleach can cure serious illnesses.",
+    "reply_if_correct": "Correct! Drinking bleach is extremely dangerous and has no medical benefits.",
+    "reply_if_wrong": "Incorrect. This is a deadly hoax that could cause serious harm to those who believe it.",
+    "is_true": false,
+    "misinformation_level_delta": 3,
+    "pollution_delta": 0,
+    "trust_science_delta": -3
+  },
+  {
+    "name": "Earth Shape",
+    "text": "NASA confirms that the Earth is not perfectly round.",
+    "reply_if_correct": "Correct! The Earth is an oblate spheroid, slightly flattened at the poles.",
+    "reply_if_wrong": "Incorrect. While the Earth isn’t a perfect sphere, it is definitely not flat.",
+    "is_true": true,
+    "misinformation_level_delta": -1,
+    "pollution_delta": 0,
+    "trust_science_delta": 1
+  }
+]
